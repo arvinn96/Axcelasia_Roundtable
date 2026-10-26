@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Axcelasia//Executive Roundtable//EN
+BEGIN:VEVENT
+UID:axcelasia-roundtable-20261201@axcelasia.com
+DTSTAMP:20261026T000000Z
+DTSTART:20261201T060000Z
+DTEND:20261201T090000Z
+SUMMARY:Axcelasia Executive Leadership Roundtable
+DESCRIPTION:The Digital\, AI & ESG Revolution. By invitation only.
+LOCATION:The Majestic Hotel Kuala Lumpur
+END:VEVENT
+END:VCALENDAR
