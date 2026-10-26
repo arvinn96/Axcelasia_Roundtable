@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   if (!isSameOrigin(request)) return redirect("/admin?error=origin");
   const secret = process.env.ADMIN_SESSION_SECRET;
   const form = await request.formData().catch(() => null);
-  const password = typeof form?.get("password") === "string" ? String(form!.get("password")) : "";
+  const password = typeof form?.get("password") === "string" ? String(form!.get("password")).trim() : "";
   if (!secret || !passwordMatches(password, process.env.ADMIN_PASSWORD)) {
     await new Promise(resolve => setTimeout(resolve, 800)); // slow down password guessing
     return redirect("/admin?error=password");
