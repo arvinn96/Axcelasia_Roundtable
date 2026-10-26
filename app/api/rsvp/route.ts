@@ -1,16 +1,10 @@
 import { saveRegistration } from "../../../db";
+import { isSameOrigin } from "../../../lib/request-origin";
 
 export const dynamic = "force-dynamic";
 
-function requestOrigin(request: Request): string {
-  // Behind Railway's proxy the app sees an internal host; use the forwarded public host instead.
-  const host = request.headers.get("x-forwarded-host") ?? request.headers.get("host");
-  const proto = request.headers.get("x-forwarded-proto") ?? new URL(request.url).protocol.replace(":", "");
-  return host ? `${proto}://${host}` : new URL(request.url).origin;
-}
-
 export async function POST(request: Request) {
-  if (request.headers.get("origin") !== requestOrigin(request))
+  if (!isSameOrigin(request))
     return Response.json({ error: "Please submit from the RSVP page." }, { status: 403 });
   if (Number(request.headers.get("content-length")) > 4096)
     return Response.json({ error: "Request is too large." }, { status: 413 });

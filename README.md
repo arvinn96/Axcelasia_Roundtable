@@ -9,6 +9,8 @@ Ported from the original OpenAI Sites export (Cloudflare Workers + D1) to a stan
 | Variable | Purpose |
 |---|---|
 | `DATABASE_URL` | Postgres connection string (on Railway: `${{Postgres.DATABASE_URL}}`) |
+| `ADMIN_PASSWORD` | Organiser password for `/admin` |
+| `ADMIN_SESSION_SECRET` | Signs organiser session cookies |
 
 The `registrations` table is created automatically on the first RSVP. One RSVP per phone number; resubmitting updates the existing row.
 
@@ -21,7 +23,10 @@ DATABASE_URL=postgres://... npm run dev
 
 ## Viewing RSVPs
 
-Railway dashboard → Postgres service → Data → `registrations` (export to CSV from there), or:
+Organiser dashboard at `/admin` (search, filter, Excel export); see ORGANISER-GUIDE.md. Alternatively:
+
+
+- Railway dashboard → Postgres service → Data → `registrations` (export to CSV from there), or:
 
 ```sql
 SELECT name, company, phone, spa, created_at FROM registrations ORDER BY created_at;

@@ -1,4 +1,5 @@
 import { Pool } from "pg";
+import type { Registration as StoredRegistration } from "../lib/rsvp-filters";
 
 // One pool per server process; reused across requests (and across hot reloads in dev).
 const globalForDb = globalThis as unknown as { pgPool?: Pool; schemaReady?: Promise<void> };
@@ -46,4 +47,14 @@ export async function saveRegistration(r: Registration): Promise<void> {
        SET name = EXCLUDED.name, company = EXCLUDED.company, spa = EXCLUDED.spa, updated_at = now()`,
     [crypto.randomUUID(), r.name, r.company, r.phone, r.spa],
   );
+}
+
+// Newest first, matching the original organiser dashboard ordering.
+export async function listRegistrations(): Promise<StoredRegistration[]> {
+  const pool = getPool();
+  await ensureSchema(pool);
+  const { rows } = await pool.query<{ id: string; name: string; company: string; phone: string; spa: "yes" | "no"; created_at: Date }>(
+    "SELECT id, name, company, phone, spa, created_at FROM registrations ORDER BY created_at DESC, id DESC",
+  );
+  return rows.map(r => ({ id: r.id, name: r.name, company: r.company, phone: r.phone, spa: r.spa, createdAt: r.created_at.toISOString() }));
 }
