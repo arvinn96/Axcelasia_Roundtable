@@ -24,7 +24,9 @@ function ensureSchema(pool: Pool): Promise<void> {
         spa        text        NOT NULL CHECK (spa IN ('yes', 'no')),
         created_at timestamptz NOT NULL DEFAULT now(),
         updated_at timestamptz NOT NULL DEFAULT now()
-      )`,
+      );
+      ALTER TABLE registrations ADD COLUMN IF NOT EXISTS email text;
+      ALTER TABLE registrations ADD COLUMN IF NOT EXISTS consent_at timestamptz`,
     )
     .then(() => undefined)
     .catch((error) => {
@@ -34,18 +36,20 @@ function ensureSchema(pool: Pool): Promise<void> {
   return globalForDb.schemaReady;
 }
 
-export type Registration = { name: string; company: string; phone: string; spa: "yes" | "no" };
+export type Registration = { name: string; company: string; email: string; phone: string; spa: "yes" | "no" };
 
 // Same behaviour as the original D1 version: one RSVP per phone number, re-submitting updates it.
+// consent_at records when the guest ticked the PDPA consent box (refreshed on each submission).
 export async function saveRegistration(r: Registration): Promise<void> {
   const pool = getPool();
   await ensureSchema(pool);
   await pool.query(
-    `INSERT INTO registrations (id, name, company, phone, spa)
-     VALUES ($1, $2, $3, $4, $5)
+    `INSERT INTO registrations (id, name, company, email, phone, spa, consent_at)
+     VALUES ($1, $2, $3, $4, $5, $6, now())
      ON CONFLICT (phone) DO UPDATE
-       SET name = EXCLUDED.name, company = EXCLUDED.company, spa = EXCLUDED.spa, updated_at = now()`,
-    [crypto.randomUUID(), r.name, r.company, r.phone, r.spa],
+       SET name = EXCLUDED.name, company = EXCLUDED.company, email = EXCLUDED.email, spa = EXCLUDED.spa,
+           consent_at = EXCLUDED.consent_at, updated_at = now()`,
+    [crypto.randomUUID(), r.name, r.company, r.email, r.phone, r.spa],
   );
 }
 
@@ -53,8 +57,8 @@ export async function saveRegistration(r: Registration): Promise<void> {
 export async function listRegistrations(): Promise<StoredRegistration[]> {
   const pool = getPool();
   await ensureSchema(pool);
-  const { rows } = await pool.query<{ id: string; name: string; company: string; phone: string; spa: "yes" | "no"; created_at: Date }>(
-    "SELECT id, name, company, phone, spa, created_at FROM registrations ORDER BY created_at DESC, id DESC",
+  const { rows } = await pool.query<{ id: string; name: string; company: string; email: string | null; phone: string; spa: "yes" | "no"; consent_at: Date | null; created_at: Date }>(
+    "SELECT id, name, company, email, phone, spa, consent_at, created_at FROM registrations ORDER BY created_at DESC, id DESC",
   );
-  return rows.map(r => ({ id: r.id, name: r.name, company: r.company, phone: r.phone, spa: r.spa, createdAt: r.created_at.toISOString() }));
+  return rows.map(r => ({ id: r.id, name: r.name, company: r.company, email: r.email ?? "", phone: r.phone, spa: r.spa, consentAt: r.consent_at?.toISOString() ?? null, createdAt: r.created_at.toISOString() }));
 }
