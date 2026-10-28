@@ -1,0 +1,142 @@
+.design-preview .site-header { gap: 28px; }
+.design-v2 .site-header { padding: 18px 40px; }
+.design-v2 .header-right > span:first-child { display: none; }
+.design-v2 .brand > span { font-size: 32px; }
+.design-v2 .brand small { font-size: 6px; letter-spacing: 3.7px; padding-top: 5px; }
+.design-v2 .hero { max-width: 1440px; grid-template-columns: minmax(0,1fr) 354px; gap: 32px; padding: 25px 40px 27px; align-items: start; }
+.design-v2 .event-intro { padding: 0; min-width: 0; }
+.v2-invitation h1 { font-size: clamp(34px,3.55vw,49px); line-height: 1.08; letter-spacing: -2px; margin: 13px 0 11px; white-space: nowrap; }
+.v2-invitation > h2 { color: var(--blue); font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -.4px; margin: 0 0 18px; }
+.v2-eyebrow { display: flex; align-items: center; gap: 10px; color: #b8c4d6; font-size: 8px; letter-spacing: 1.8px; }
+.v2-event-strip { display: flex; align-items: center; gap: 16px; padding: 13px 16px; border: 1px solid #ffffff20; border-radius: 6px; background: linear-gradient(110deg,#1a2639,#142030); }
+.v2-calendar { flex: 0 0 48px; text-align: center; border-radius: 3px; overflow: hidden; background: #f7f6f2; color: #101827; }
+.v2-calendar > span { display: block; background: #d51e32; color: white; font-size: 8px; font-weight: 700; letter-spacing: 1.5px; line-height: 1; padding: 5px; }
+.v2-calendar > strong { display: block; font-size: 27px; line-height: 1; letter-spacing: -1px; padding: 5px 0 6px; }
+.v2-event-meta { min-width: 0; flex: 1; }
+.v2-event-meta p { margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 7px 16px; color: #b4c1d2; font-size: 12px; line-height: 1.5; }
+.v2-event-meta p:first-child { margin-bottom: 7px; }
+.v2-event-meta strong { font-weight: 600; color: #f0f3f7; font-size: 13px; }
+.v2-event-time { display: inline-flex; align-items: center; gap: 7px; color: #d2deed; font-size: 11px; }
+.v2-event-meta svg { color: var(--blue); flex-shrink: 0; }
+.v2-event-meta p:last-child { flex-wrap: nowrap; align-items: flex-start; gap: 7px; }
+.v2-event-meta p:last-child svg { margin-top: 2px; }
+.v2-event-meta p:last-child > span { min-width: 0; }
+.v2-mobile-rsvp { display: none; }
+.v2-copy { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; margin: 20px 0; }
+.v2-insight { min-width: 0; }
+.v2-insight h3 { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; font-size: 13px; line-height: 1.4; font-weight: 600; color: #eef3fb; }
+.v2-insight h3 > span { display: grid; place-items: center; flex: 0 0 29px; height: 29px; background: #5dafff0d; border: 1px solid #74b8fa28; border-radius: 50%; color: #85b7e9; }
+.v2-copy p { margin: 0; color: #b9c4d4; font-size: 13px; line-height: 1.6; }
+.v2-copy p:last-child { margin-bottom: 0; }
+.v2-copy strong { color: #eef2f8; font-weight: 600; }
+.v2-experience-points { display: grid; grid-template-columns: 1fr 1fr 1.8fr; gap: 16px; padding: 16px 0 0; margin: 0; border-top: 1px solid #ffffff1c; list-style: none; }
+.v2-experience-points li { display: flex; align-items: flex-start; gap: 10px; min-width: 0; }
+.v2-experience-points li + li { padding-left: 16px; border-left: 1px solid #ffffff19; }
+.v2-experience-points svg { flex: 0 0 20px; color: #8eabc9; margin-top: 2px; }
+.v2-experience-points p { margin: 0; font-size: 12px; line-height: 1.6; color: #aebdd1; }
+.v2-experience-points strong { font-weight: 600; color: #eef2f8; }
+.v2-closing { color: #91a2b8; margin: 19px 0 0; font-size: 12px; line-height: 1.6; }
+.v2-closing > strong { color: #eef2f8; font-weight: 700; }
+.design-v2 .rsvp-card { padding: 21px 23px 20px; border-radius: 0 0 6px 6px; }
+.design-v2 .card-top .eyebrow { font-size: 7px; letter-spacing: 1.2px; }
+.design-v2 .card-top svg { width: 18px; height: 18px; }
+.design-v2 .rsvp-card h2 { font-size: 29px; letter-spacing: -1.1px; margin: 14px 0 8px; }
+.design-v2 .card-description { font-size: 12px; line-height: 1.6; margin-bottom: 17px; }
+.design-v2 form > label { margin: 12px 0 7px; font-size: 11px; }
+.design-v2 form > input { height: 41px; font-size: 12px; }
+.design-v2 .spa { margin-top: 23px; padding-top: 15px; }
+.design-v2 .spa legend { font-size: 7px; letter-spacing: 1.2px; }
+.design-v2 .spa p { font-size: 12px; line-height: 1.7; margin-bottom: 13px; }
+.design-v2 .choices { gap: 8px; }
+.design-v2 .choices label { padding: 10px; min-height: 38px; font-size: 10px; }
+.design-v2 .privacy { font-size: 9px; margin: 15px 0; line-height: 1.6; }
+.design-v2 .submit { min-height: 44px; padding: 12px 15px; }
+.design-v2 .gift { font-size: 8px; line-height: 1.7; margin-top: 14px; }
+.design-v2 .host-note { font-size: 7px; margin-top: 14px; letter-spacing: 1.2px; }
+.design-v2 .success { min-height: 505px; }
+@media(min-width:1051px) and (max-height:800px) {
+  .design-v2 .site-header { padding-top: 13px; padding-bottom: 13px; }
+  .design-v2 .hero { padding-top: 20px; padding-bottom: 12px; }
+  .v2-copy { margin-top: 17px; margin-bottom: 17px; }
+  .v2-copy p { line-height: 1.6; }
+}
+@media(min-width:1051px) and (max-height:760px) {
+  .design-v2 .site-header { padding-top: 11px; padding-bottom: 11px; }
+  .design-v2 .hero { padding-top: 16px; padding-bottom: 10px; }
+  .design-v2 .rsvp-card { padding-top: 17px; padding-bottom: 17px; }
+  .design-v2 .rsvp-card h2 { margin-top: 11px; }
+  .design-v2 .card-description { margin-bottom: 12px; }
+  .design-v2 form > label { margin-top: 10px; margin-bottom: 5px; }
+  .design-v2 form > input { height: 38px; }
+  .design-v2 .spa { margin-top: 18px; padding-top: 12px; }
+  .design-v2 .spa p { line-height: 1.6; margin-bottom: 10px; }
+  .design-v2 .privacy { margin-top: 12px; margin-bottom: 12px; }
+  .design-v2 .gift { margin-top: 11px; }
+  .design-v2 .host-note { margin-top: 10px; }
+  .v2-invitation > h2 { margin-bottom: 14px; }
+  .v2-copy { margin-top: 15px; margin-bottom: 15px; }
+  .v2-event-strip { padding-top: 9px; padding-bottom: 9px; }
+  .v2-copy { gap: 13px 24px; }
+  .v2-insight h3 { margin-bottom: 6px; }
+  .v2-copy p { line-height: 1.55; }
+  .v2-closing { margin-top: 16px; }
+}
+@media(max-width:1100px) {
+  .design-preview .site-header { gap: 18px; }
+  .design-v2 .site-header { padding-inline: 28px; }
+  .design-v2 .hero { padding-inline: 28px; grid-template-columns: minmax(0,1fr) 330px; gap: 25px; }
+  .v2-invitation h1 { white-space: normal; font-size: 39px; max-width: 520px; }
+  .v2-copy { gap: 18px; }
+  .v2-experience-points { gap: 12px; }
+  .v2-experience-points li + li { padding-left: 12px; }
+  .design-v2 .rsvp-card { padding-inline: 21px; }
+}
+@media(max-width:850px) and (min-width:721px) {
+  .v2-copy { grid-template-columns: 1fr; gap: 13px; }
+  .v2-event-meta p:first-child { gap: 4px; }
+  .v2-experience-points { grid-template-columns: 1fr; }
+  .v2-experience-points li + li { padding-left: 0; border-left: 0; }
+}
+@media(max-width:720px) {
+  .design-preview .site-header { display: grid; grid-template-columns: 1fr auto; gap: 18px 12px; padding: 20px 23px 16px; }
+  .design-preview .header-right { justify-content: flex-end; }
+  .design-v2 .brand > span { font-size: 30px; }
+  .design-v2 .brand small { font-size: 6px; letter-spacing: 3.3px; }
+  .design-v2 .hero { grid-template-columns: minmax(0,1fr); padding: 28px 23px 30px; gap: 28px; }
+  .v2-invitation h1 { font-size: 40px; white-space: normal; letter-spacing: -1.8px; margin-top: 17px; max-width: 500px; }
+  .v2-invitation > h2 { font-size: 21px; margin-bottom: 21px; }
+  .v2-eyebrow { font-size: 8px; letter-spacing: 1.3px; }
+  .v2-event-strip { padding: 12px; gap: 12px; }
+  .v2-calendar { flex-basis: 44px; }
+  .v2-event-meta p { font-size: 12px; gap: 7px; }
+  .v2-event-meta p:first-child { gap: 5px; }
+  .v2-event-meta strong { font-size: 12px; }
+  .v2-mobile-rsvp { display: inline-flex; align-items: center; gap: 16px; min-height: 44px; margin-top: 10px; font-size: 13px; color: var(--blue); font-weight: 600; }
+  .v2-mobile-rsvp span { font-size: 18px; }
+  .v2-copy { grid-template-columns: 1fr; gap: 23px; margin: 23px 0; }
+  .v2-insight h3 { font-size: 15px; margin-bottom: 10px; }
+  .v2-insight h3 > span { flex-basis: 33px; height: 33px; }
+  .v2-copy p { font-size: 15px; line-height: 1.75; }
+  .v2-experience-points { grid-template-columns: 1fr; gap: 18px; padding-top: 23px; }
+  .v2-experience-points li { gap: 12px; }
+  .v2-experience-points li + li { padding-left: 0; border-left: 0; }
+  .v2-experience-points p { font-size: 14px; line-height: 1.7; }
+  .v2-experience-points svg { margin-top: 2px; }
+  .v2-closing { margin-top: 24px; font-size: 14px; }
+  .design-v2 .rsvp-card { padding: 24px 23px; }
+  .design-v2 .rsvp-card h2 { font-size: 31px; }
+  .design-v2 form > input { font-size: 16px; min-height: 48px; }
+  .design-v2 form > label { font-size: 12px; margin-top: 15px; }
+  .design-v2 .card-description { font-size: 14px; }
+  .design-v2 .spa p { font-size: 14px; }
+  .design-v2 .choices label { min-height: 44px; font-size: 11px; }
+  .design-v2 .privacy { font-size: 11px; }
+  .design-v2 .submit { min-height: 48px; font-size: 14px; }
+  .design-v2 .gift { font-size: 10px; }
+  .design-v2 .host-note { font-size: 7px; letter-spacing: 1px; }
+}
+@media(max-width:360px) {
+  .design-preview .brand > span { font-size: 28px; }
+  .design-preview .brand small { font-size: 5px; letter-spacing: 3.1px; }
+  .design-preview .invite { font-size: 6px; letter-spacing: .8px; padding: 9px 7px; }
+}
