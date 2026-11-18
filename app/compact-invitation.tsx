@@ -16,7 +16,7 @@ export default function CompactInvitation() {
         </div>
       </div>
 
-      <a className="v2-mobile-rsvp" href="#rsvp">{RSVP_OPEN ? "Reserve your seat" : "Registration closed"} <span aria-hidden="true">↓</span></a>
+      <a className="v2-mobile-rsvp" href="#rsvp">{RSVP_OPEN ? "Reserve your seat" : "RSVP closed"} <span aria-hidden="true">↓</span></a>
 
       <div className="v2-copy">
         <article className="v2-insight">
