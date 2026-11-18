@@ -1,9 +1,12 @@
 import { saveRegistration } from "../../../db";
 import { isSameOrigin } from "../../../lib/request-origin";
+import { RSVP_OPEN } from "../../../lib/rsvp-status";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(request: Request) {
+  if (!RSVP_OPEN)
+    return Response.json({ error: "Registration for this event has now closed." }, { status: 410 });
   if (!isSameOrigin(request))
     return Response.json({ error: "Please submit from the RSVP page." }, { status: 403 });
   if (Number(request.headers.get("content-length")) > 4096)

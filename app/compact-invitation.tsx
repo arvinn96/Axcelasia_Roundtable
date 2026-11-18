@@ -1,4 +1,5 @@
 import { Globe2, Compass, UsersRound, Target, Presentation, BookOpen, MessagesSquare, MapPin, Clock3 } from "lucide-react";
+import { RSVP_OPEN } from "../lib/rsvp-status";
 
 export default function CompactInvitation() {
   return (
@@ -15,7 +16,7 @@ export default function CompactInvitation() {
         </div>
       </div>
 
-      <a className="v2-mobile-rsvp" href="#rsvp">Reserve your seat <span aria-hidden="true">↓</span></a>
+      <a className="v2-mobile-rsvp" href="#rsvp">{RSVP_OPEN ? "Reserve your seat" : "Registration closed"} <span aria-hidden="true">↓</span></a>
 
       <div className="v2-copy">
         <article className="v2-insight">
