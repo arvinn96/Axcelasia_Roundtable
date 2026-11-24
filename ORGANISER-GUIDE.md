@@ -15,7 +15,7 @@ If either is missing, the dashboard stays locked. To revoke access, change `ADMI
 
 ## Responses and exports
 
-The dashboard reads the Postgres `registrations` table. It shows total responses, represented companies, and guest details. Search by name, designation, company, email or phone. Refresh reloads the current responses. Excel exports include the current search, preserve phone numbers as text, and use Kuala Lumpur time. Repeat submissions for the same phone update that guest rather than adding a duplicate. Guest data lives only in the Railway Postgres database, not in GitHub.
+The dashboard reads the Postgres `registrations` table. It shows total responses, spa interest, represented companies, and guest details. Search by name, company or phone and filter by spa interest. Refresh reloads the current responses. Excel exports include the current search/filter, preserve phone numbers as text, and use Kuala Lumpur time. Repeat submissions for the same phone update that guest rather than adding a duplicate. Guest data lives only in the Railway Postgres database, not in GitHub.
 
 ## Local development
 

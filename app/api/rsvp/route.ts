@@ -21,7 +21,7 @@ export async function POST(request: Request) {
     const email = typeof data.email === "string" ? data.email.trim().toLowerCase() : "";
     const rawPhone = typeof data.phone === "string" ? data.phone.trim() : "";
     const phone = rawPhone.replace(/[ ()-]/g, "");
-    if (!name || name.length > 120 || !company || company.length > 160 || rawPhone.length > 30 || !/^\+?\d{7,15}$/.test(phone))
+    if (!name || name.length > 120 || !company || company.length > 160 || rawPhone.length > 30 || !/^\+?\d{7,15}$/.test(phone) || (data.spa !== undefined && data.spa !== "yes" && data.spa !== "no"))
       return Response.json({ error: "Please enter your name, company and a valid phone number." }, { status: 400 });
     if (!designation || designation.length > 120)
       return Response.json({ error: "Please enter your designation." }, { status: 400 });
@@ -29,7 +29,7 @@ export async function POST(request: Request) {
       return Response.json({ error: "Please enter a valid email address." }, { status: 400 });
     if (data.consent !== "yes")
       return Response.json({ error: "Please tick the consent box so we can process your RSVP." }, { status: 400 });
-    await saveRegistration({ name, designation, company, email, phone });
+    await saveRegistration({ name, designation, company, email, phone, spa: data.spa ?? null });
     return Response.json({ success: true }, { headers: { "Cache-Control": "no-store" } });
   } catch (error) {
     console.error("RSVP could not be saved", error instanceof Error ? error.message : "Unknown error");

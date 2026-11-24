@@ -29,5 +29,5 @@ Organiser dashboard at `/admin` (search, filter, Excel export); see ORGANISER-GU
 - Railway dashboard → Postgres service → Data → `registrations` (export to CSV from there), or:
 
 ```sql
-SELECT name, designation, company, email, phone, consent_at, created_at FROM registrations ORDER BY created_at;
+SELECT name, company, phone, spa, created_at FROM registrations ORDER BY created_at;
 ```
