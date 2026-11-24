@@ -12,7 +12,7 @@ export default function CompactInvitation() {
         <div className="v2-calendar" aria-hidden="true"><span>DEC</span><strong>01</strong></div>
         <div className="v2-event-meta">
           <p><strong>Tuesday, 1 December 2026</strong><span className="v2-event-time"><Clock3 size={14} /> 2:00 – 5:00 PM MYT</span></p>
-          <p><MapPin size={15} /><span>The Majestic Hotel Kuala Lumpur</span></p>
+          <p><MapPin size={15} /><span>JW Marriott Kuala Lumpur</span></p>
         </div>
       </div>
 

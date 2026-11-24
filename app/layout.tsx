@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Axcelasia | Executive Leadership Roundtable RSVP",
-  description: "Reserve your seat for The Digital, AI & ESG Revolution. 1 December 2026, 2–5 PM at The Majestic Hotel Kuala Lumpur. By invitation only.",
+  description: "Reserve your seat for The Digital, AI & ESG Revolution. 1 December 2026, 2–5 PM at JW Marriott Kuala Lumpur. By invitation only.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
